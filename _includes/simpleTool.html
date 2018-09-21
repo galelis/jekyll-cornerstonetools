@@ -13,14 +13,21 @@
     
     {{ content }}
     
+    How to set up the {{page.toolName}} tool:
+    
+    {% highlight javascript %}
+    const cTools = cornerstoneTools.init({});
+    cTools.addTool('{{page.toolName}}')
+    {% endhighlight %}
+    
     {% include cornerstoneFiles.html %}
     
     <script>
         const toolName = "{{ page.toolName }}";
         const cTools = cornerstoneTools.init();
         const imageIds = [
-            'example://1',
-            'example://2'
+        'example://1',
+        'example://2'
         ];
         
         // Enable & Setup all of our elements
@@ -89,7 +96,7 @@
             }
             return 0;
         }
-
+        
         const preventContextMenu = event => event.preventDefault();
         const preventMidleClick = event => {
             if (event.button && event.button === 1) {
@@ -97,7 +104,7 @@
             }
         };
         const buttons = document.querySelectorAll('button');
-
+        
         buttons.forEach( btn => {
             btn.addEventListener('contextmenu', preventContextMenu, true);
             btn.addEventListener('auxclick', preventMidleClick, false);
