@@ -1,8 +1,7 @@
 ---
 layout: page
 title: Lenght Tool
-toolName: length
+toolName: Length
 htmlFile: simpleTool.html
 permalink: /length/
 ---
-

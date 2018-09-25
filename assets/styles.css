@@ -1,7 +1,3 @@
-#passive {
-  color: red;
-}
-
 .cornerstone-element-wrapper {
   width: 100%;
   /* calc(full page - toolbarHeight * 2) */
@@ -21,4 +17,19 @@
   min-width: 320px;
   min-height: 200px;
   flex-grow: 1;
+}
+
+.tool-list {
+  display: flex;
+  border-bottom: 1px solid #e8e8e8;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.thumbnail {
+  text-align: center;
+  flex-grow: 1;
+  width: 150px;
+  padding: 10px;
+  margin-bottom: 10px;
 }

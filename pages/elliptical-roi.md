@@ -1,8 +1,7 @@
 ---
 layout: page
 title: EllipticalRoi Tool
-toolName: ellipticalRoi
+toolName: EllipticalRoi
 htmlFile: simpleTool.html
 permalink: /ellipticalRoi/
 ---
-

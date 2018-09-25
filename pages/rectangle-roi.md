@@ -1,8 +1,7 @@
 ---
 layout: page
 title: RectangleRoi Tool
-toolName: rectangleRoi
+toolName: RectangleRoi
 htmlFile: simpleTool.html
 permalink: /rectangleRoi/
 ---
-
