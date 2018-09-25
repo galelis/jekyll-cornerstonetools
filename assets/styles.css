@@ -1,7 +1,6 @@
 .cornerstone-element-wrapper {
   width: 100%;
-  /* calc(full page - toolbarHeight * 2) */
-  height: calc(100% - 130px);
+  height: 300px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -12,11 +11,46 @@
 .cornerstone-element {
   display: block;
   position: relative;
-  width: 100%;
+  width: 250px;
   height: 100%;
   min-width: 320px;
   min-height: 200px;
   flex-grow: 1;
+}
+
+.active {
+  background-color: rgb(70, 70, 70);
+  color: white;
+}
+
+.modeButton{
+  background-color:#f9f9f9;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #dcdcdc;
+  display:inline-block;
+  cursor:pointer;
+  color:#666666;
+  font-family:Arial;
+  font-size:15px;
+  font-weight:bold;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #ffffff;
+}
+.modeButton:hover {
+  background-color:#e9e9e9;
+}
+.modeButton.active {
+  background-color:#79bbff;
+  border:1px solid #84bbf3;
+  color:#ffffff;
+  text-shadow:0px 1px 0px #528ecc;
+}
+
+.button-group {
+  margin-bottom: 20px;
 }
 
 .tool-list {
@@ -24,6 +58,10 @@
   border-bottom: 1px solid #e8e8e8;
   flex-wrap: wrap;
   margin-bottom: 20px;
+}
+
+.tool-set-up {
+  margin-top: 15px;
 }
 
 .thumbnail {

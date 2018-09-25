@@ -1,0 +1,68 @@
+const activeTool = document.querySelector('#active');
+const passiveTool = document.querySelector('#passive');
+const enableTool = document.querySelector('#enabled');
+const disableTool = document.querySelector('#disabled');
+
+// Setup button listener
+activeTool.addEventListener('mousedown', (evt) => {
+    const mouseButtonMask = evt.buttons
+    ? evt.buttons
+    : convertMouseEventWhichToButtons(evt.which)
+    cTools.setToolActive(toolName, { mouseButtonMask });
+    setButtonActive(activeTool);
+    
+    evt.preventDefault();
+    evt.stopPropagation();
+    evt.stopImmediatePropagation();
+    return false;
+});
+passiveTool.addEventListener('mousedown', () => {
+    cTools.setToolPassive(toolName);
+    setButtonActive(passiveTool);
+});
+enableTool.addEventListener('mousedown', () => {
+    cTools.setToolEnabled(toolName);
+    setButtonActive(enableTool);
+});
+disableTool.addEventListener('mousedown', () => {
+    cTools.setToolDisabled(toolName);
+    setButtonActive(disableTool);
+});
+
+const convertMouseEventWhichToButtons = (which) => {
+    switch (which) {
+        // no button
+        case 0:
+        return 0;
+        // left
+        case 1:
+        return 1;
+        // middle
+        case 2:
+        return 4;
+        // right
+        case 3:
+        return 2;
+    }
+    return 0;
+}
+
+const preventContextMenu = event => event.preventDefault();
+const preventMidleClick = event => {
+    if (event.button && event.button === 1) {
+        event.preventDefault();
+    }
+};
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach( btn => {
+    btn.addEventListener('contextmenu', preventContextMenu, true);
+    btn.addEventListener('auxclick', preventMidleClick, false);
+});
+
+const setButtonActive = (button) => {
+    buttons.forEach( btn => {
+        btn.classList.remove('active');
+    });
+    button.classList.add('active');
+}

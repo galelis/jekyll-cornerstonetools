@@ -1,0 +1,18 @@
+const imageIds = [
+    'example://1',
+    'example://2'
+];
+
+const element = document.querySelector('.cornerstone-element');
+cornerstone.enable(element);
+
+// Enable & Setup all of our elements
+const cTools = cornerstoneTools.init();        
+cTools.addEnabledElement(element);
+
+element.tabIndex = 0;
+element.focus();
+
+cornerstone.loadImage(imageIds[0]).then(function (image) {
+    cornerstone.displayImage(element, image);
+});
