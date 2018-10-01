@@ -1,6 +1,5 @@
 ---
-layout: page
+layout: tool-page
 title: RectangleRoi Tool
 toolName: RectangleRoi
-permalink: /rectangleRoi/
 ---

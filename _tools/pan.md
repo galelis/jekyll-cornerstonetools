@@ -1,6 +1,5 @@
 ---
-layout: page
+layout: tool-page
 title: Pan Tool
 toolName: Pan
-permalink: /pan/
 ---

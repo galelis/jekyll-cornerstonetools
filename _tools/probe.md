@@ -1,6 +1,5 @@
 ---
-layout: page
+layout: tool-page
 title: Probe Tool
 toolName: Probe
-permalink: /probe/
 ---

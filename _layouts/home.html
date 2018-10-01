@@ -9,14 +9,14 @@ layout: default
   
   {{ content }}
   
-  {% if site.pages.size > 0 %}
+  {% if site.tools.size > 0 %}
   <h2 class="tool-list-heading">{{ "Tools" }}</h2>
   <div class="tool-list">
-    {% for page in site.pages %}
-      {% if page.toolName %}
+    {% for tool in site.tools %}
+      {% if tool.toolName %}
       <div class="thumbnail">
-          <a class="tool-link" href="{{ page.url | relative_url }}">
-            {{ page.title }}
+          <a class="tool-link" href="{{ tool.url | relative_url }}">
+            {{ tool.title }}
           </a>
       </div>
       {% endif %}
