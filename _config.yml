@@ -28,7 +28,7 @@ theme: minima
 plugins:
   - jekyll-feed
 
-sass: 
+sass:
   sass_dir: _sass
 
 

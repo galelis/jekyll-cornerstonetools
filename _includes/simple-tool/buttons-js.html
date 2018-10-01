@@ -1,14 +1,12 @@
 const activeTool = document.querySelector('#active');
 const passiveTool = document.querySelector('#passive');
-const enableTool = document.querySelector('#enabled');
-const disableTool = document.querySelector('#disabled');
 
 // Setup button listener
 activeTool.addEventListener('mousedown', (evt) => {
     const mouseButtonMask = evt.buttons
     ? evt.buttons
     : convertMouseEventWhichToButtons(evt.which)
-    cTools.setToolActive(toolName, { mouseButtonMask });
+    csTools.setToolActive("{{ page.toolName }}", { mouseButtonMask });
     setButtonActive(activeTool);
     
     evt.preventDefault();
@@ -17,16 +15,8 @@ activeTool.addEventListener('mousedown', (evt) => {
     return false;
 });
 passiveTool.addEventListener('mousedown', () => {
-    cTools.setToolPassive(toolName);
+    csTools.setToolPassive("{{ page.toolName }}");
     setButtonActive(passiveTool);
-});
-enableTool.addEventListener('mousedown', () => {
-    cTools.setToolEnabled(toolName);
-    setButtonActive(enableTool);
-});
-disableTool.addEventListener('mousedown', () => {
-    cTools.setToolDisabled(toolName);
-    setButtonActive(disableTool);
 });
 
 const convertMouseEventWhichToButtons = (which) => {
@@ -66,3 +56,6 @@ const setButtonActive = (button) => {
     });
     button.classList.add('active');
 }
+
+csTools.setToolActive("{{ page.toolName }}", { mouseButtonMask: 1 });
+setButtonActive(activeTool);

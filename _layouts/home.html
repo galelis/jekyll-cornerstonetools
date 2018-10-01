@@ -14,12 +14,16 @@ layout: default
   <div class="tool-list">
     {% for page in site.pages %}
       {% if page.toolName %}
-        {% include tool-thumbnail.html %}
+      <div class="thumbnail">
+          <a class="tool-link" href="{{ page.url | relative_url }}">
+            {{ page.title }}
+          </a>
+      </div>
       {% endif %}
     {% endfor %}
   </div>
   {% endif %}
   
-  {% capture my-include %}{% include get-started.md %}{% endcapture %}
-  {{ my-include | markdownify }}
+  {% capture get-started %}{% include get-started.md %}{% endcapture %}
+  {{ get-started | markdownify }}
 </div>
