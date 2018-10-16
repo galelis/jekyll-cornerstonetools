@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html lang="" >
+<head>
+  <meta charset="UTF-8">
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <title>Examples · cornerstone-tools</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="">
+  <meta name="HandheldFriendly" content="true"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+  <link rel="stylesheet" href="{{ 'assets/gitbook/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ 'assets/gitbook/gitbook-plugin-versions/plugin.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ 'assets/gitbook/gitbook-plugin-highlight/website.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ 'assets/gitbook/gitbook-plugin-search/search.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ 'assets/gitbook/gitbook-plugin-theme-cornerstone/cornerstone.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ 'assets/styles/website.css' | relative_url }}">
+  <link rel="shortcut icon" href="{{ 'assets/gitbook/images/favicon.ico' | relative_url }}" type="image/x-icon">
+  <link rel="next" href="./" />
+  <link rel="prev" href="installation.html" />
+</head>
+<body>
+  <div class="book">
+    <div class="book-summary">
+      <div id="book-search-input" role="search">
+        <input type="text" placeholder="Type to search" />
+      </div>
+      <nav role="navigation">
+        <ul class="summary">
+          <li class="header">Tools</li>
+          <ul class="articles">
+            {% assign index = 0 %}
+            {% for tool in site.tools %}
+            {% if tool.toolName %}
+            <li class="chapter {% if tool.toolName == page.toolName %}active{% endif %}" data-level="1.{% increment index %}" data-path="{{ tool.url | relative_url }}index.html">
+              <a href="{{ tool.url | relative_url }}index.html">
+                {{ tool.title }}
+              </a>
+            </li>
+              {% if tool.toolName == page.toolName %}
+                {% assign currentLevel = index %}
+              {% endif %}
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </ul>
+      </nav>
+    </div>
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <!-- Title -->
+          <a class="btn pull-left js-toolbar-action" aria-label="" href="#">
+            <i class="fa fa-align-justify"></i>
+          </a>
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+            <a href="." >{{page.title}}</a>
+          </h1>
+        </div>
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+            <div id="book-search-results">
+              <div class="search-noresults">
+                {{ content }}
+              </div>
+              <div class="search-results">
+                <div class="has-results">
+                  <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+                  <ul class="search-results-list"></ul>
+                </div>
+                <div class="no-results">
+                  <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    var gitbook = [];
+    gitbook.push(function() {
+      gitbook.page.hasChanged({
+        "page": {
+          "title": "{{page.title}}",
+          "level": "1.{{ currentLevel }}",
+          "depth": 1,
+          "dir": "ltr"
+        },
+        "config": {
+          "plugins": [
+            "edit-link",
+            "theme-cornerstone",
+            "-fontsettings",
+            "github",
+            "ga",
+            "sitemap"
+          ],
+          "styles": {
+            "website": "styles/website.css",
+            "pdf": "styles/pdf.css",
+            "epub": "styles/epub.css",
+            "mobi": "styles/mobi.css",
+            "ebook": "styles/ebook.css",
+            "print": "styles/print.css"
+          },
+          "pluginsConfig": {
+            "github": {
+              "url": "https://github.com/cornerstonejs/cornerstoneTools"
+            },
+            "search": {},
+            "theme-cornerstone": {},
+            "lunr": {},
+            "highlight": {},
+            "sitemap": {
+              "hostname": "https://tools.cornerstonejs.org"
+            },
+            "ga": {
+              "configuration": "auto",
+              "token": "UA-110573590-1"
+            },
+            "versions": {
+              "type": "branches"
+            },
+            "sharing": {},
+            "theme-default": {
+              "styles": {
+                "website": "styles/website.css",
+                "pdf": "styles/pdf.css",
+                "epub": "styles/epub.css",
+                "mobi": "styles/mobi.css",
+                "ebook": "styles/ebook.css",
+                "print": "styles/print.css"
+              },
+              "showLevel": false
+            }
+          },
+          "theme": "default",
+          "structure": {},
+          "variables": {},
+          "title": "cornerstone-tools",
+          "links": {
+            "sharing": {
+              "facebook": false,
+              "twitter": false
+            }
+          },
+          "gitbook": ">3.0.0"
+        },
+        "file": {},
+        "gitbook": {},
+        "basePath": ".",
+        "book": {}
+      });
+    });
+    </script>
+  <!-- <script src="{{ 'gitbook/gitbook.js'| relative_url }} "></script>
+    <script src="{{ 'gitbook/theme.js'| relative_url }} "></script>
+    <script src="{{ 'gitbook/gitbook-plugin-edit-link/plugin.js'| relative_url }} "></script>
+    <script src="{{ 'gitbook/gitbook-plugin-github/plugin.js'| relative_url }} "></script>
+    <script src="{{ 'gitbook/gitbook-plugin-ga/plugin.js'| relative_url }} "></script>
+    <script src="{{ 'gitbook/gitbook-plugin-versions/plugin.js'| relative_url }} "></script>
+    <script src="{{ 'gitbook/gitbook-plugin-search/search-engine.js'| relative_url }} "></script>
+    <script src="{{ 'gitbook/gitbook-plugin-search/search.js'| relative_url }} "></script>
+    <script src="{{ 'gitbook/gitbook-plugin-lunr/lunr.min.js'| relative_url }} "></script> -->
+      
+      <script src="{{ 'assets/gitbook/gitbook.js'| relative_url }} "></script>
+      <script src="{{ 'assets/gitbook/theme.js'| relative_url }} "></script>
+      <script src="{{ 'assets/gitbook/gitbook-plugin-github/plugin.js'| relative_url }} "></script>
+      <script src="{{ 'assets/gitbook/gitbook-plugin-ga/plugin.js'| relative_url }} "></script>
+      <script src="{{ 'assets/gitbook/gitbook-plugin-versions/plugin.js'| relative_url }} "></script>
+      <script src="{{ 'assets/gitbook/gitbook-plugin-search/search-engine.js'| relative_url }} "></script>
+      <script src="{{ 'assets/gitbook/gitbook-plugin-search/search.js'| relative_url }} "></script>
+      <script src="{{ 'assets/gitbook/gitbook-plugin-lunr/lunr.min.js'| relative_url }} "></script>
+    </div>
+  </body>
+</html>

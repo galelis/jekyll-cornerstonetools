@@ -1,0 +1,20 @@
+window.imageIds = [
+    'example://1',
+    'example://2',
+    'example://3'
+];
+
+window.stack = {
+    currentImageIdIndex: 0,
+    imageIds: imageIds
+};
+
+window.element = document.querySelector('.cornerstone-element');
+cornerstone.enable(element);
+
+cornerstone.loadImage(imageIds[0]).then(function (image) {
+    cornerstone.displayImage(element, image);
+
+    cornerstoneTools.addStackStateManager(element, ['stack']);
+    cornerstoneTools.addToolState(element, 'stack', stack);
+});

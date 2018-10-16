@@ -1,39 +1,68 @@
 ---
-layout: default
+layout: default2
 ---
 
+{% assign buttons-html = "simple-tool/buttons-html.html" %}
+{% if page.buttons-html %}
+    {% assign buttons-html = page.buttons-html %}
+{% endif %}
+
+{% assign elements-html = "simple-tool/elements-html.html" %}
+{% if page.elements-html %}
+    {% assign elements-html = page.elements-html %}
+{% endif %}
+
+{% assign tutorial = "simple-tool/tutorial.md" %}
+{% if page.tutorial %}
+    {% assign tutorial = page.tutorial.md %}
+{% endif %}
+
+{% assign elements-js = "simple-tool/elements-js.html" %}
+{% if page.elements-js %}
+    {% assign elements-js = page.elements-js %}
+{% endif %}
+
+{% assign tool-js = "simple-tool/tool-js.html" %}
+{% if page.tool-js %}
+    {% assign tool-js = page.tool-js %}
+{% endif %}
+
+{% assign buttons-js = "simple-tool/buttons-js.html" %}
+{% if page.buttons-js %}
+    {% assign buttons-js = page.buttons-js %}
+{% endif %}
+
 <body>
-        <div class="wrapper">
-            <h1>{{ page.title }}</h1>
-            {% include simple-tool/buttons-html.html %}
-            
-            <div class="cornerstone-element-wrapper">
-                {% include simple-tool/elements-html.html %}
-            </div>
+    <div class="wrapper">
+        <h1>{{ page.title }}</h1>
+
+        {% include {{buttons-html}} %}
+        
+        {% include {{elements-html}} %}
+
         </div>
-        
-        {{ content }}
+    </div>
     
-        <div class="tool-set-up">
-            {% capture tool-set-up %}{% include simple-tool/tutorial.md %}{% endcapture %}
-            {{ tool-set-up | markdownify }}
-        </div>
-        
-        {% include cornerstone-files.html %}
-        
-        <script>
-            const csTools = cornerstoneTools.init();
-    
-            {% include simple-tool/elements-js.html %}
+    {{ content }}
 
-            const {{ page.toolName }}Tool = cornerstoneTools.{{ page.toolName }}Tool;
+    <div class="tool-set-up">
+        {% capture tool-set-up %}{% include {{tutorial}} %}{% endcapture %}
+        {{ tool-set-up | markdownify }}
+    </div>
     
-            // Adds tool to ALL currently enabledElements
-            csTools.addTool({{ page.toolName }}Tool);
-
+    {% include cornerstone-files.html %}
     
-            {% include simple-tool/buttons-js.html %}
-            
-        </script>
+    <script>
+        (function(){
+            window.csTools = cornerstoneTools.init();
 
-    </body>
+            {% include {{elements-js}} %}
+
+            {% include {{tool-js}} %}
+
+            {% include {{buttons-js}} %}
+        })();
+        
+    </script>
+
+</body>

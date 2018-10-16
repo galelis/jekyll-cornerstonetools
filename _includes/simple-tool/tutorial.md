@@ -1,9 +1,10 @@
 # How to set up the {{page.toolName}} tool:
 
 - HTML:
-{% highlight html %}
+
+``` html
 {% include simple-tool/elements-html.html %}
-{% endhighlight %}
+```
 
 - Javascript:
 {% highlight javascript %}
